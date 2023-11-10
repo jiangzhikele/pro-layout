@@ -1,4 +1,4 @@
-English | [简体中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
 <h1 align="center">Ant Design Pro Layout</h1>
 
@@ -8,18 +8,17 @@ English | [简体中文](./README.zh-CN.md)
 
 </div>
 
-## Usage
+## 使用
 
 ```bash
 npm i @ant-design-vue/pro-layout --save
-// or
+// 或者
 yarn add @ant-design-vue/pro-layout
 ```
 
 ```jsx
 import ProLayout from '@ant-design-vue/pro-layout'
 
-// by jsx
 export default {
   name: 'BasicLayout',
   render () {
@@ -66,8 +65,6 @@ export default {
 </template>
 
 <script>
-
-// by template
 import ProLayout, { SettingDrawer } from '@ant-design-vue/pro-layout'
 import { asyncRouterMap } from '../config/router.config'
 
@@ -121,48 +118,47 @@ export default {
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| title | layout in the upper left corner title | VNode \| String | `'Ant Design Pro'` |
-| logo | layout top left logo url | VNode \| render | - |
-| loading`*` | layout loading status | boolean | - |
-| layout | layout menu mode, sidemenu: right navigation, topmenu: top navigation | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
-| contentWidth | content mode of layout, Fluid: adaptive, Fixed:  fixed width 1200px | 'Fixed' \| 'Fluid' | `Fluid` |
-| theme | Navigation menu theme | 'light' \| 'dark' | `'dark'` |
-| menus | Vue-router `routes` prop | Object | `[{}]` |
-| collapsed | control menu's collapse and expansion | boolean | true |
-| isMobile | is mobile | boolean | false |
-| handleCollapse | folding collapse event of menu | (collapsed: boolean) => void | - |
-| menuHeaderRender | render logo and title | v-slot \| VNode \| (logo,title)=>VNode \| false | - |
-| headerRender | custom header render method | (props: BasicLayoutProps) => VNode | - |
-| rightContentRender | header right content render method | (props: HeaderViewProps) => VNode | - |
-| collapsedButtonRender | custom collapsed button method | (collapsed: boolean) => VNode | - |
-| footerRender | custom footer render method | (props: BasicLayoutProps) => VNode | `false` | - |
-| breadcrumbRender | custom breadcrumb render method | ({ route, params, routes, paths, h }) => VNode[] | - |
-| i18nRender | i18n | Function (key: string) => string \| `false` | `false` |
-| handleMediaQuery | media matchs callback | (querys: []) => void | - |
-| mediaQuery            | media matchs                                                 | Array                              | -                  |
-| openOnceKey           | menu only open root key | `true`     | - |
+| title | layout 的 左上角 的 title | VNode \| String | `'Ant Design Pro'` |
+| logo | layout 的 左上角 logo 的 url | VNode \| render | - |
+| loading`*` | layout 的加载态 | boolean | - |
+| menuHeaderRender | 渲染 logo 和 title | v-slot \| VNode \| (logo,title)=>VNode \| false | - |
+| layout | layout 的菜单模式, sidemenu: 右侧导航, topmenu: 顶部导航 | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
+| contentWidth | layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px | 'Fixed' \| 'Fluid' | `Fluid` |
+| theme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
+| menus | Vue-router `routes` 属性 | Object | `[{}]` |
+| collapsed | 控制菜单的收起和展开 | boolean | true |
+| isMobile | 是否为手机模式 | boolean | false |
+| handleCollapse | 菜单的折叠收起事件	 | (collapsed: boolean) => void | - |
+| headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => VNode | - |
+| rightContentRender | 自定义头右部的 render 方法 | (props: HeaderViewProps) => VNode | - |
+| collapsedButtonRender | 自定义 侧栏收缩按钮 的方法 | (collapsed: boolean) => VNode | - |
+| footerRender | 自定义 底部区域内容 | (props: BasicLayoutProps) => VNode | `false` | - |
+| breadcrumbRender | 自定义面包屑渲染方法 | ({ route, params, routes, paths, h }) => VNode[] | - |
+| i18nRender | 本地化渲染函数 (this.$t) | Function (key: string) => string  \| `false` | `false` |
+| handleMediaQuery | 媒体查询回调 | (querys: []) => void | - |
+| mediaQuery            | ProLayout 当前的媒体查询                        | Array                              | -                  |
+| openOnceKey           | Menu菜单最多只打开一个 | `true`  | - |
 
 
 ### PageHeaderWrapper
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| content | Content area | VNode \| v-slot | - |
-| extra | Extra content area, on the right side of content | VNode \| v-slot | - |
-| extraContent | Extra content area, on the right side of content | VNode \| v-slot | - |
-| tabList | Tabs title list | `Array<{key: string, tab: sting}>` | - |
-| tab-change | Switch panel callback | (key) => void | - |
-| tab-active-key | The currently highlighted tab item | string | - |
-
+| content | 内容区          | VNode \| v-slot | - |
+| extra | 扩展区域 | VNode \| v-slot | - |
+| extraContent | 扩展内容区      | VNode \| v-slot | - |
+| tabList | Tabs 导航 | `Array<{key: string, tab: sting}>` | - |
+| tab-change | Tab 改变事件 | (key) => void | - |
+| tab-active-key | 当前 Tab 选中项 | string | - |
 
 
 
 ### SettingDrawer
 
 #### {settings}
+
 | Property | Description | Type | Default Value |
 | ---- | ---- | ---- | ---- |
-| theme | Theme | `dark` `light` `realDark` | `light` |
-| layout | Sider Layout | `sidemenu` `topmenu` | `sidemenu` |
-| primaryColor | Primary color (*development only) | `#1890ff` |      |
-| contentWidth | content mode of layout, Fluid: adaptive, Fixed:  fixed width 1200px | 'Fixed' \| 'Fluid' | `Fluid` |
+| theme | 主题 | `dark` `light` `realDark` | `light` |
+| layout | 布局模式 | `sidemenu` `topmenu` | `sidemenu` |
+| primaryColor | 主色调 (*仅开发环境生效) | `#1890ff` |      |
