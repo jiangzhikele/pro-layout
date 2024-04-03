@@ -1,12 +1,8 @@
 {
     "name": "j-pro-layout",
-    "version": "1.0.12",
+    "version": "1.0.2",
     "main": "./lib/index.js",
     "module": "./es/index.js",
-    "contributors": [
-        "tangjinzhou <415800467@qq.com>",
-        "Sendya <yladmxa@gmail.com>"
-    ],
     "repository": {
         "type": "git",
         "url": "git@github.com:jiangzhikele/pro-layout.git"

@@ -22,6 +22,7 @@ export const BasicLayoutProps = {
   locale: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).def('en-US'),
   breadcrumbRender: PropTypes.func,
   disableMobile: PropTypes.bool.def(false),
+  fullscreen: PropTypes.bool.def(false),
   mediaQuery: PropTypes.object.def({}),
   handleMediaQuery: PropTypes.func,
   footerRender: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(undefined),
@@ -67,7 +68,8 @@ const headerRender = (h, props) => {
   if (props.headerRender === false) {
     return null
   }
-  return <HeaderView { ...{ props } } />
+  const { fullscreen } = props
+  return <HeaderView { ...{ props } } style={{ display: fullscreen ? 'none' : '' }}/>
 }
 
 const defaultI18nRender = (key) => key
@@ -88,9 +90,9 @@ const BasicLayout = {
       handleCollapse,
       siderWidth,
       fixSiderbar,
+      fullscreen,
       i18nRender = defaultI18nRender
     } = props
-
     const footerRender = getComponentFromProp(content, 'footerRender')
     const rightContentRender = getComponentFromProp(content, 'rightContentRender')
     const collapsedButtonRender = getComponentFromProp(content, 'collapsedButtonRender')
@@ -116,7 +118,6 @@ const BasicLayout = {
       menuRender,
       ...listeners,
     }
-
     return (
       <ConfigProvider i18nRender={i18nRender} contentWidth={props.contentWidth} breadcrumbRender={breadcrumbRender}>
         <ContainerQuery query={MediaQueryEnum} onChange={handleMediaQuery}>
@@ -126,6 +127,7 @@ const BasicLayout = {
             ...mediaQuery
           }}>
             <SiderMenuWrapper
+              style={{ display: fullscreen ? 'none' : 'flex' }}
               { ...{ props: cdProps } }
               collapsed={collapsed}
               onCollapse={handleCollapse}
