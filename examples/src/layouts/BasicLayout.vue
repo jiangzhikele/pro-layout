@@ -1,6 +1,7 @@
 <template>
   <pro-layout
     :menus="menus"
+    :fullscreen="fullscreen"
     :collapsed="collapsed"
     :mediaQuery="query"
     :isMobile="isMobile"
@@ -69,6 +70,7 @@ export default {
   },
   data () {
     return {
+      fullscreen: true,
       // base
       menus: [],
       // 侧栏收起状态
